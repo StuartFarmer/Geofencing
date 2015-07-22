@@ -7,8 +7,13 @@
 //
 
 #import "ViewController.h"
+#import "Geofencing.h"
 
-@interface ViewController ()
+@import MapKit;
+
+@interface ViewController () {
+   
+}
 
 @end
 
@@ -16,7 +21,25 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    // Do any additional setup after loading the view, typically from a nib.
+    
+    NSMutableArray *geofences = [[NSMutableArray alloc] init];
+    CLCircularRegion *someRegion = [[CLCircularRegion alloc] initWithCenter:CLLocationCoordinate2DMake(-40, 80) radius:100 identifier:nil];
+    Geofencing *fencing = [[Geofencing alloc] init];
+    [fencing monitorRegions:@[] onEnter:^(NSArray *regions) {
+        for (CLCircularRegion *region in regions) {
+            // do something with the CLCircularRegions
+        }
+        for (MKPolygon *polygon in regions) {
+            // do something with the MKPolygons
+        }
+    } onExit:^(NSArray *regions) {
+        for (CLCircularRegion *region in regions) {
+            // do something with the CLCircularRegions
+        }
+        for (MKPolygon *polygon in regions) {
+            // do something with the MKPolygons
+        }
+    }];
 }
 
 - (void)didReceiveMemoryWarning {

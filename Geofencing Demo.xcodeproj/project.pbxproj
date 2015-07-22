@@ -14,6 +14,8 @@
 		9CAEE7411B600F2F0092C6EA /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9CAEE7401B600F2F0092C6EA /* Images.xcassets */; };
 		9CAEE7441B600F2F0092C6EA /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9CAEE7421B600F2F0092C6EA /* LaunchScreen.xib */; };
 		9CAEE7501B600F2F0092C6EA /* Geofencing_DemoTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 9CAEE74F1B600F2F0092C6EA /* Geofencing_DemoTests.m */; };
+		9CAEE75E1B603C310092C6EA /* Geofencing.m in Sources */ = {isa = PBXBuildFile; fileRef = 9CAEE75B1B603C310092C6EA /* Geofencing.m */; };
+		9CAEE75F1B603C310092C6EA /* GFGeofence.m in Sources */ = {isa = PBXBuildFile; fileRef = 9CAEE75D1B603C310092C6EA /* GFGeofence.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -40,6 +42,10 @@
 		9CAEE7491B600F2F0092C6EA /* Geofencing DemoTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Geofencing DemoTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		9CAEE74E1B600F2F0092C6EA /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		9CAEE74F1B600F2F0092C6EA /* Geofencing_DemoTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Geofencing_DemoTests.m; sourceTree = "<group>"; };
+		9CAEE75A1B603C310092C6EA /* Geofencing.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Geofencing.h; sourceTree = "<group>"; };
+		9CAEE75B1B603C310092C6EA /* Geofencing.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Geofencing.m; sourceTree = "<group>"; };
+		9CAEE75C1B603C310092C6EA /* GFGeofence.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GFGeofence.h; sourceTree = "<group>"; };
+		9CAEE75D1B603C310092C6EA /* GFGeofence.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GFGeofence.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -63,6 +69,7 @@
 		9CAEE7271B600F2F0092C6EA = {
 			isa = PBXGroup;
 			children = (
+				9CAEE7591B603C310092C6EA /* Geofencing */,
 				9CAEE7321B600F2F0092C6EA /* Geofencing Demo */,
 				9CAEE74C1B600F2F0092C6EA /* Geofencing DemoTests */,
 				9CAEE7311B600F2F0092C6EA /* Products */,
@@ -117,6 +124,17 @@
 				9CAEE74E1B600F2F0092C6EA /* Info.plist */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		9CAEE7591B603C310092C6EA /* Geofencing */ = {
+			isa = PBXGroup;
+			children = (
+				9CAEE75A1B603C310092C6EA /* Geofencing.h */,
+				9CAEE75B1B603C310092C6EA /* Geofencing.m */,
+				9CAEE75C1B603C310092C6EA /* GFGeofence.h */,
+				9CAEE75D1B603C310092C6EA /* GFGeofence.m */,
+			);
+			path = Geofencing;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -219,8 +237,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9CAEE75E1B603C310092C6EA /* Geofencing.m in Sources */,
 				9CAEE73C1B600F2F0092C6EA /* ViewController.m in Sources */,
 				9CAEE7391B600F2F0092C6EA /* AppDelegate.m in Sources */,
+				9CAEE75F1B603C310092C6EA /* GFGeofence.m in Sources */,
 				9CAEE7361B600F2F0092C6EA /* main.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -416,6 +436,7 @@
 				9CAEE7551B600F2F0092C6EA /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		9CAEE7561B600F2F0092C6EA /* Build configuration list for PBXNativeTarget "Geofencing DemoTests" */ = {
 			isa = XCConfigurationList;
@@ -424,6 +445,7 @@
 				9CAEE7581B600F2F0092C6EA /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
