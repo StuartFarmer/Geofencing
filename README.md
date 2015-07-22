@@ -1,3 +1,3 @@
 # Geofencing
 
-## A Cocoa Library That Makes Dealing With Geofences a Breeze
+### A Cocoa Library That Makes Dealing With Geofences a Breeze
