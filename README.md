@@ -2,7 +2,7 @@
 
 ### A Cocoa Library That Makes Multi Geofencing a Breeze
 Monitor infiniate amounts of geofences, whether they be CLRegions, or MKPolygons.
-
+![Geofencing](fencing.png)
 ####So why Geofencing over CoreLocation's Region Monitoring?
 
 Firstly, CoreLocation relies on delegate methods to handle asynchronous events, which become messy, especially if you are entering and exiting a lot of locations. It also requires a lot of set up and finicking compared to CoreLocation's location updates. This may be because region monitoring includes / overlaps with iBeacon features. It seems that Apple wrote this section of the library with this technology in mind. iBeacons are great, if you have the $$$ and time to implement them. Geofences are free and instantly deployable internationally.
