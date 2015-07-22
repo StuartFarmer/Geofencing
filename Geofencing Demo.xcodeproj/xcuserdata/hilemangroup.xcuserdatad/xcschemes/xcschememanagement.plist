@@ -4,7 +4,7 @@
 <dict>
 	<key>SchemeUserState</key>
 	<dict>
-		<key>Geofense Demo.xcscheme</key>
+		<key>Geofencing Demo.xcscheme</key>
 		<dict>
 			<key>orderHint</key>
 			<integer>0</integer>
@@ -12,7 +12,12 @@
 	</dict>
 	<key>SuppressBuildableAutocreation</key>
 	<dict>
-		<key>9C6332D41B5FDFAE006149E6</key>
+		<key>9CAEE72F1B600F2F0092C6EA</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>9CAEE7481B600F2F0092C6EA</key>
 		<dict>
 			<key>primary</key>
 			<true/>
