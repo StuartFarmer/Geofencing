@@ -17,7 +17,12 @@ typedef void(^regions) (NSArray *regions);
 @property (strong, nonatomic) CLLocationManager *locationManager;
 @property (strong, nonatomic) NSMutableArray *geofences;
 
-- (void)monitorRegions:(NSArray *)regions onEnter:(regions)enterBlock onExit:(regions)exitBlock;
-- (void)test;
+@property (strong, nonatomic) NSMutableArray *enteredRegions;
+@property (strong, nonatomic) NSMutableArray *exitedRegions;
+
+@property (nonatomic) BOOL monitoring;
+
+- (void)monitorRegions:(NSArray *)fences onEnter:(regions)enterBlock onExit:(regions)exitBlock;
+- (void)stopMonitoring;
 
 @end

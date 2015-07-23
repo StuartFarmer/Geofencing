@@ -27,11 +27,10 @@
     CLCircularRegion *region2 = [[CLCircularRegion alloc] initWithCenter:CLLocationCoordinate2DMake(41, -80) radius:100 identifier:@"2"];
     CLCircularRegion *region3 = [[CLCircularRegion alloc] initWithCenter:CLLocationCoordinate2DMake(42, -80) radius:100 identifier:@"3"];
     
-    
     [fencing monitorRegions:@[region1, region2, region3] onEnter:^(NSArray *regions) {
-        NSLog(@"Do something");
+        NSLog(@"The count of entered regions:%i", regions.count);
     } onExit:^(NSArray *regions) {
-        NSLog(@"Do something else");
+        NSLog(@"The count of exited regions:%i", regions.count);
     }];
 }
 
@@ -45,8 +44,7 @@
 }
 
 - (IBAction)startMonitoringPressed:(id)sender {
-    
-    
-
+    CLCircularRegion *test = [[CLCircularRegion alloc] initWithCenter:CLLocationCoordinate2DMake(80,80) radius:10 identifier:@"5"];
+    [fencing.enteredRegions addObject:test];
 }
 @end
