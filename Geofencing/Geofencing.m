@@ -38,15 +38,26 @@
 
 - (void)monitorRegions:(NSArray *)regions onEnter:(regions)enterBlock onExit:(regions)exitBlock {
     
-    // Convert CLCircularRegions to GFGeofence objects
-    
-    for (CLCircularRegion *region in regions) {
-        GFGeofence *fence = [[GFGeofence alloc] init];
-        fence.region = region;
-        fence.currentState = GFOutside;
-        fence.lastState = GFOutside;
-        [self.geofences addObject:fence];
+    // Convert CLCircularRegions & MKPolygons to GFGeofence objects and add them to the global array
+    for (id object in regions) {
+        if ([object isKindOfClass:[CLCircularRegion class]]) {
+            GFGeofence *fence = [[GFGeofence alloc] init];
+            fence.region = object;
+            fence.currentState = GFOutside;
+            fence.lastState = GFOutside;
+            fence.type = GFCircularRegion;
+            [self.geofences addObject:fence];
+        }
+        if ([object isKindOfClass:[MKPolygon class]]) {
+            GFGeofence *fence = [[GFGeofence alloc] init];
+            fence.polygon = object;
+            fence.currentState = GFOutside;
+            fence.lastState = GFOutside;
+            fence.type = GFPolygon;
+            [self.geofences addObject:fence];
+        }
     }
+    NSLog(@"%lu objects loaded.", (unsigned long)self.geofences.count);
     
     [self.locationManager requestAlwaysAuthorization];
     [self.locationManager startUpdatingLocation];
@@ -55,7 +66,6 @@
 
 - (void)locationManager:(nonnull CLLocationManager *)manager didUpdateLocations:(nonnull NSArray *)locations {
     CLLocation *location = [locations lastObject];
-    NSLog(@"%@",location);
     // Arrays to be returned by block
     NSMutableArray *enteredRegions = [[NSMutableArray alloc] init];
     NSMutableArray *exitedRegions = [[NSMutableArray alloc] init];
@@ -78,6 +88,8 @@
             }
         }
         fence.lastState = fence.currentState;
+        NSLog(@"Regions entered: %@", enteredRegions.count ? enteredRegions : @"0");
+        NSLog(@"Regions exited: %@", exitedRegions.count ? exitedRegions : @"0");
     }
     
     // Return arrays to monitorRegions to be send back.

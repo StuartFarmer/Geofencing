@@ -9,6 +9,7 @@
 #import <Foundation/Foundation.h>
 
 @import CoreLocation;
+@import MapKit;
 
 @interface GFGeofence : NSObject
 
@@ -18,9 +19,21 @@ typedef enum{
     GFNeither,
 } GeofenceState;
 
+typedef enum {
+    GFCircularRegion,
+    GFPolygon
+} GeofenceType;
+
+// Data
 @property (strong, nonatomic) CLCircularRegion *region;
-@property (strong, nonatomic) NSString *name;
+@property (strong, nonatomic) MKPolygon *polygon;
+
+// Descriptors
 @property (nonatomic) GeofenceState currentState;
 @property (nonatomic) GeofenceState lastState;
+
+// Identifiers
+@property (strong, nonatomic) NSString *name;
+@property (nonatomic) GeofenceType type;
 
 @end
