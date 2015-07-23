@@ -9,8 +9,6 @@
 #import "Geofencing.h"
 #import "GFGeofence.h"
 
-#import "MTKObserving.h"
-
 @interface Geofencing() <CLLocationManagerDelegate> {
     CLLocation *currentLocation;
 }
@@ -68,17 +66,45 @@
     [self.locationManager requestAlwaysAuthorization];
     [self.locationManager startUpdatingLocation];
 
-    
-    NSLog(@"This is running");
+    // Start running the loop on a non-main thread.
     dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
         
         while (self.monitoring) {
-            //Here your non-main thread.
-            [NSThread sleepForTimeInterval:2.0f];
             dispatch_async(dispatch_get_main_queue(), ^{
-                //Here you returns to main thread.
-                NSLog(@"%@",currentLocation);
+                
+                // Check if location is within any geofences
+                for (GFGeofence *fence in self.geofences) {
+                    
+                    // Modify region state depending on new user location
+                    if ([fence.region containsCoordinate:currentLocation.coordinate]) fence.currentState = GFInside;
+                    else fence.currentState = GFOutside;
+                    
+                    // Check if there is a difference in states, and add fence to appropriate array if so
+                    if (fence.currentState != fence.lastState) {
+                        switch (fence.currentState) {
+                            case GFInside:
+                                [self.enteredRegions addObject:fence];
+                                break;
+                            case GFOutside:
+                                [self.exitedRegions addObject:fence];
+                            default:
+                                break;
+                        }
+                    }
+                    
+                    // Update the region's state
+                    fence.lastState = fence.currentState;
+                }
+                
+                // Return arrays to monitorRegions to be send back.
+                if ([self.enteredRegions count]>0) enterBlock(self.enteredRegions);
+                if ([self.exitedRegions count]>0) exitBlock(self.exitedRegions);
+
             });
+            
+            // Sleep for the update interval. Update interval must be greater than 1 second.
+            if (self.updateInterval < 1) self.updateInterval = 1;
+            [NSThread sleepForTimeInterval:self.updateInterval];
         }
     });
 }
@@ -89,31 +115,6 @@
 
 - (void)locationManager:(nonnull CLLocationManager *)manager didUpdateLocations:(nonnull NSArray *)locations {
     currentLocation = [locations lastObject];
-//    
-//    for (GFGeofence *fence in self.geofences) {
-//        // Modify region state depending on new user location
-//        if ([fence.region containsCoordinate:location.coordinate]) fence.currentState = GFInside;
-//        else fence.currentState = GFOutside;
-//        
-//        // Check if there is a difference in states, and add fence to appropriate array if so
-//        if (fence.currentState != fence.lastState) {
-//            switch (fence.currentState) {
-//                case GFInside:
-//                    [self.enteredRegions addObject:fence];
-//                    break;
-//                case GFOutside:
-//                    [self.exitedRegions addObject:fence];
-//                default:
-//                    break;
-//            }
-//        }
-//        fence.lastState = fence.currentState;
-//        NSLog(@"Regions entered: %@", self.enteredRegions.count ? self.enteredRegions : @"0");
-//        NSLog(@"Regions exited: %@", self.exitedRegions.count ? self.exitedRegions : @"0");
-//    }
-//    
-//    // Return arrays to monitorRegions to be send back.
-//    if ([self.enteredRegions count]>0) NSLog(@"You entered somewhere!");
 }
 
 @end

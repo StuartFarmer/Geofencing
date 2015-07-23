@@ -21,6 +21,7 @@ typedef void(^regions) (NSArray *regions);
 @property (strong, nonatomic) NSMutableArray *exitedRegions;
 
 @property (nonatomic) BOOL monitoring;
+@property (nonatomic) float updateInterval;
 
 - (void)monitorRegions:(NSArray *)fences onEnter:(regions)enterBlock onExit:(regions)exitBlock;
 - (void)stopMonitoring;

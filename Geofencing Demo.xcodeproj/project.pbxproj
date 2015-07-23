@@ -16,8 +16,6 @@
 		9CAEE7501B600F2F0092C6EA /* Geofencing_DemoTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 9CAEE74F1B600F2F0092C6EA /* Geofencing_DemoTests.m */; };
 		9CAEE75E1B603C310092C6EA /* Geofencing.m in Sources */ = {isa = PBXBuildFile; fileRef = 9CAEE75B1B603C310092C6EA /* Geofencing.m */; };
 		9CAEE75F1B603C310092C6EA /* GFGeofence.m in Sources */ = {isa = PBXBuildFile; fileRef = 9CAEE75D1B603C310092C6EA /* GFGeofence.m */; };
-		9CFBA7421B6148B900DBF1F4 /* MTKObserver.m in Sources */ = {isa = PBXBuildFile; fileRef = 9CFBA7391B6148B900DBF1F4 /* MTKObserver.m */; };
-		9CFBA7431B6148B900DBF1F4 /* NSObject+MTKObserving.m in Sources */ = {isa = PBXBuildFile; fileRef = 9CFBA73D1B6148B900DBF1F4 /* NSObject+MTKObserving.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -48,15 +46,6 @@
 		9CAEE75B1B603C310092C6EA /* Geofencing.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Geofencing.m; sourceTree = "<group>"; };
 		9CAEE75C1B603C310092C6EA /* GFGeofence.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GFGeofence.h; sourceTree = "<group>"; };
 		9CAEE75D1B603C310092C6EA /* GFGeofence.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GFGeofence.m; sourceTree = "<group>"; };
-		9CFBA7381B6148B900DBF1F4 /* MTKObserver.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MTKObserver.h; sourceTree = "<group>"; };
-		9CFBA7391B6148B900DBF1F4 /* MTKObserver.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MTKObserver.m; sourceTree = "<group>"; };
-		9CFBA73A1B6148B900DBF1F4 /* MTKObserving.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MTKObserving.h; path = "Geofencing/KVO Blocks/MTKObserving.h"; sourceTree = SOURCE_ROOT; };
-		9CFBA73B1B6148B900DBF1F4 /* MTKObservingMacros.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MTKObservingMacros.h; sourceTree = "<group>"; };
-		9CFBA73C1B6148B900DBF1F4 /* NSObject+MTKObserving.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSObject+MTKObserving.h"; sourceTree = "<group>"; };
-		9CFBA73D1B6148B900DBF1F4 /* NSObject+MTKObserving.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSObject+MTKObserving.m"; sourceTree = "<group>"; };
-		9CFBA73F1B6148B900DBF1F4 /* keypath.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = keypath.h; sourceTree = "<group>"; };
-		9CFBA7401B6148B900DBF1F4 /* metamacros.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = metamacros.h; sourceTree = "<group>"; };
-		9CFBA7411B6148B900DBF1F4 /* scope.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = scope.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -140,37 +129,12 @@
 		9CAEE7591B603C310092C6EA /* Geofencing */ = {
 			isa = PBXGroup;
 			children = (
-				9CFBA7371B6148B900DBF1F4 /* KVO Blocks */,
 				9CAEE75A1B603C310092C6EA /* Geofencing.h */,
 				9CAEE75B1B603C310092C6EA /* Geofencing.m */,
 				9CAEE75C1B603C310092C6EA /* GFGeofence.h */,
 				9CAEE75D1B603C310092C6EA /* GFGeofence.m */,
 			);
 			path = Geofencing;
-			sourceTree = "<group>";
-		};
-		9CFBA7371B6148B900DBF1F4 /* KVO Blocks */ = {
-			isa = PBXGroup;
-			children = (
-				9CFBA7381B6148B900DBF1F4 /* MTKObserver.h */,
-				9CFBA7391B6148B900DBF1F4 /* MTKObserver.m */,
-				9CFBA73A1B6148B900DBF1F4 /* MTKObserving.h */,
-				9CFBA73B1B6148B900DBF1F4 /* MTKObservingMacros.h */,
-				9CFBA73C1B6148B900DBF1F4 /* NSObject+MTKObserving.h */,
-				9CFBA73D1B6148B900DBF1F4 /* NSObject+MTKObserving.m */,
-				9CFBA73E1B6148B900DBF1F4 /* Utilities */,
-			);
-			path = "KVO Blocks";
-			sourceTree = "<group>";
-		};
-		9CFBA73E1B6148B900DBF1F4 /* Utilities */ = {
-			isa = PBXGroup;
-			children = (
-				9CFBA73F1B6148B900DBF1F4 /* keypath.h */,
-				9CFBA7401B6148B900DBF1F4 /* metamacros.h */,
-				9CFBA7411B6148B900DBF1F4 /* scope.h */,
-			);
-			path = Utilities;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -273,10 +237,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				9CFBA7421B6148B900DBF1F4 /* MTKObserver.m in Sources */,
 				9CAEE75E1B603C310092C6EA /* Geofencing.m in Sources */,
 				9CAEE73C1B600F2F0092C6EA /* ViewController.m in Sources */,
-				9CFBA7431B6148B900DBF1F4 /* NSObject+MTKObserving.m in Sources */,
 				9CAEE7391B600F2F0092C6EA /* AppDelegate.m in Sources */,
 				9CAEE75F1B603C310092C6EA /* GFGeofence.m in Sources */,
 				9CAEE7361B600F2F0092C6EA /* main.m in Sources */,
