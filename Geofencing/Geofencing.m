@@ -9,46 +9,47 @@
 #import "Geofencing.h"
 #import "GFGeofence.h"
 
+@interface Geofencing() <CLLocationManagerDelegate>
+
+@end
+
 @implementation Geofencing
+
+- (id) init {
+    self = [super init];
+    if( !self ) return nil;
+
+    self.geofences = [[NSMutableArray alloc] init];
+    
+    // Spin up location manager
+    self.locationManager = [[CLLocationManager alloc] init];
+    self.locationManager.delegate = self;
+    
+    self.locationManager.distanceFilter = kCLDistanceFilterNone;
+    self.locationManager.desiredAccuracy = kCLLocationAccuracyNearestTenMeters;
+    
+    return self;
+}
+
+- (void)test {
+    [self.locationManager requestAlwaysAuthorization];
+    //[locationManager startUpdatingLocation];
+}
 
 - (void)monitorRegions:(NSArray *)regions onEnter:(regions)enterBlock onExit:(regions)exitBlock {
     
     // Convert CLCircularRegions to GFGeofence objects
-    geofences = [[NSMutableArray alloc] init];
+    
     for (CLCircularRegion *region in regions) {
         GFGeofence *fence = [[GFGeofence alloc] init];
         fence.region = region;
         fence.currentState = GFOutside;
         fence.lastState = GFOutside;
-        [geofences addObject:fence];
+        [self.geofences addObject:fence];
     }
     
-    // Spin up location manager
-    locationManager = [[CLLocationManager alloc] init];
-    locationManager.delegate = self;
-    
-    if ([CLLocationManager authorizationStatus]==kCLAuthorizationStatusNotDetermined) {
-        NSLog(@"Not Determined");
-    }
-    
-    if ([CLLocationManager authorizationStatus]==kCLAuthorizationStatusDenied) {
-        NSLog(@"Denied");
-    }
-    
-    if ([CLLocationManager authorizationStatus]==kCLAuthorizationStatusRestricted) {
-        NSLog(@"Restricted");
-    }
-    
-    if ([CLLocationManager authorizationStatus]==kCLAuthorizationStatusAuthorizedAlways) {
-        NSLog(@"Always Allowed");
-    }
-    
-    if ([CLLocationManager authorizationStatus]==kCLAuthorizationStatusAuthorizedWhenInUse) {
-        NSLog(@"When In Use Allowed");
-    }
-    [locationManager requestAlwaysAuthorization];
-
-    [locationManager startUpdatingLocation];
+    [self.locationManager requestAlwaysAuthorization];
+    [self.locationManager startUpdatingLocation];
     
 }
 
@@ -59,7 +60,7 @@
     NSMutableArray *enteredRegions = [[NSMutableArray alloc] init];
     NSMutableArray *exitedRegions = [[NSMutableArray alloc] init];
     
-    for (GFGeofence *fence in geofences) {
+    for (GFGeofence *fence in self.geofences) {
         // Modify region state depending on new user location
         if ([fence.region containsCoordinate:location.coordinate]) fence.currentState = GFInside;
         else fence.currentState = GFOutside;

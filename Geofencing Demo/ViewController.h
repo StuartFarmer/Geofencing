@@ -10,6 +10,7 @@
 
 @interface ViewController : UIViewController
 
+- (IBAction)startMonitoringPressed:(id)sender;
 
 @end
 

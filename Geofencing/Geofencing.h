@@ -12,11 +12,12 @@
 
 typedef void(^regions) (NSArray *regions);
 
-@interface Geofencing : NSObject <CLLocationManagerDelegate> {
-    CLLocationManager *locationManager;
-    NSMutableArray *geofences;
-}
+@interface Geofencing : NSObject
+
+@property (strong, nonatomic) CLLocationManager *locationManager;
+@property (strong, nonatomic) NSMutableArray *geofences;
 
 - (void)monitorRegions:(NSArray *)regions onEnter:(regions)enterBlock onExit:(regions)exitBlock;
+- (void)test;
 
 @end
