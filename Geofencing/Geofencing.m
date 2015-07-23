@@ -40,7 +40,10 @@
 }
 
 - (void)monitorRegions:(NSArray *)fences onEnter:(regions)enterBlock onExit:(regions)exitBlock {
+    
+    // Begin monitoring
     self.monitoring = true;
+    
     // Convert CLCircularRegions & MKPolygons to GFGeofence objects and add them to the global array
     for (id object in fences) {
         if ([object isKindOfClass:[CLCircularRegion class]]) {
@@ -60,7 +63,6 @@
             [self.geofences addObject:fence];
         }
     }
-    NSLog(@"%lu objects loaded.", (unsigned long)self.geofences.count);
     
     // Begin location services
     [self.locationManager requestAlwaysAuthorization];
@@ -75,9 +77,14 @@
                 // Check if location is within any geofences
                 for (GFGeofence *fence in self.geofences) {
                     
-                    // Modify region state depending on new user location
-                    if ([fence.region containsCoordinate:currentLocation.coordinate]) fence.currentState = GFInside;
-                    else fence.currentState = GFOutside;
+                    // Test whether or not a user's location is within a region or polygon and adjust the current state accordingly
+                    if (fence.type == GFCircularRegion) {
+                        if ([fence.region containsCoordinate:currentLocation.coordinate]) fence.currentState = GFInside;
+                        else fence.currentState = GFOutside;
+                    } else if (fence.type == GFPolygon) {
+                        if ([self location:currentLocation IsWithinPolygon:fence.polygon]) fence.currentState = GFInside;
+                        else fence.currentState = GFOutside;
+                    }
                     
                     // Check if there is a difference in states, and add fence to appropriate array if so
                     if (fence.currentState != fence.lastState) {
@@ -96,7 +103,7 @@
                     fence.lastState = fence.currentState;
                 }
                 
-                // Return arrays to monitorRegions to be send back.
+                // Send back entered and exited regions to the callback blocks if there are any to send
                 if ([self.enteredRegions count]>0) enterBlock(self.enteredRegions);
                 if ([self.exitedRegions count]>0) exitBlock(self.exitedRegions);
 
@@ -113,6 +120,12 @@
     self.monitoring = false;
 }
 
+- (BOOL)location:(CLLocation *)currentLocation IsWithinPolygon:(MKPolygon *)polygon {
+    // insert hit test code here.
+    return true;
+}
+
+#pragma CLLocationManager Delegates
 - (void)locationManager:(nonnull CLLocationManager *)manager didUpdateLocations:(nonnull NSArray *)locations {
     currentLocation = [locations lastObject];
 }
