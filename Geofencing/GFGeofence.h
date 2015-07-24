@@ -21,12 +21,15 @@ typedef enum{
 
 typedef enum {
     GFCircularRegion,
-    GFPolygon
+    GFPolygon,
+    GFMultiPolygon
 } GeofenceType;
 
 // Data
 @property (strong, nonatomic) CLCircularRegion *region;
 @property (strong, nonatomic) MKPolygon *polygon;
+
+@property (strong, nonatomic) id fence;
 
 // Descriptors
 @property (nonatomic) GeofenceState currentState;

@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		9C04953D1B62735E00D0F4EA /* GFMultiPolygon.m in Sources */ = {isa = PBXBuildFile; fileRef = 9C04953C1B62735E00D0F4EA /* GFMultiPolygon.m */; };
+		9C0495401B6273DE00D0F4EA /* GFPolygon.m in Sources */ = {isa = PBXBuildFile; fileRef = 9C04953F1B6273DE00D0F4EA /* GFPolygon.m */; };
+		9C0495441B62742800D0F4EA /* GFCircularRegion.m in Sources */ = {isa = PBXBuildFile; fileRef = 9C0495431B62742800D0F4EA /* GFCircularRegion.m */; };
 		9CAEE7361B600F2F0092C6EA /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 9CAEE7351B600F2F0092C6EA /* main.m */; };
 		9CAEE7391B600F2F0092C6EA /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 9CAEE7381B600F2F0092C6EA /* AppDelegate.m */; };
 		9CAEE73C1B600F2F0092C6EA /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9CAEE73B1B600F2F0092C6EA /* ViewController.m */; };
@@ -29,6 +32,12 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		9C04953B1B62735E00D0F4EA /* GFMultiPolygon.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GFMultiPolygon.h; sourceTree = "<group>"; };
+		9C04953C1B62735E00D0F4EA /* GFMultiPolygon.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GFMultiPolygon.m; sourceTree = "<group>"; };
+		9C04953E1B6273DE00D0F4EA /* GFPolygon.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GFPolygon.h; sourceTree = "<group>"; };
+		9C04953F1B6273DE00D0F4EA /* GFPolygon.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GFPolygon.m; sourceTree = "<group>"; };
+		9C0495421B62742800D0F4EA /* GFCircularRegion.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GFCircularRegion.h; sourceTree = "<group>"; };
+		9C0495431B62742800D0F4EA /* GFCircularRegion.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GFCircularRegion.m; sourceTree = "<group>"; };
 		9CAEE7301B600F2F0092C6EA /* Geofencing Demo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Geofencing Demo.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		9CAEE7341B600F2F0092C6EA /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		9CAEE7351B600F2F0092C6EA /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -66,6 +75,19 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		9C0495411B62740400D0F4EA /* Fence Types */ = {
+			isa = PBXGroup;
+			children = (
+				9C04953B1B62735E00D0F4EA /* GFMultiPolygon.h */,
+				9C04953C1B62735E00D0F4EA /* GFMultiPolygon.m */,
+				9C04953E1B6273DE00D0F4EA /* GFPolygon.h */,
+				9C04953F1B6273DE00D0F4EA /* GFPolygon.m */,
+				9C0495421B62742800D0F4EA /* GFCircularRegion.h */,
+				9C0495431B62742800D0F4EA /* GFCircularRegion.m */,
+			);
+			name = "Fence Types";
+			sourceTree = "<group>";
+		};
 		9CAEE7271B600F2F0092C6EA = {
 			isa = PBXGroup;
 			children = (
@@ -133,6 +155,7 @@
 				9CAEE75B1B603C310092C6EA /* Geofencing.m */,
 				9CAEE75C1B603C310092C6EA /* GFGeofence.h */,
 				9CAEE75D1B603C310092C6EA /* GFGeofence.m */,
+				9C0495411B62740400D0F4EA /* Fence Types */,
 			);
 			path = Geofencing;
 			sourceTree = "<group>";
@@ -238,10 +261,13 @@
 			buildActionMask = 2147483647;
 			files = (
 				9CAEE75E1B603C310092C6EA /* Geofencing.m in Sources */,
+				9C0495401B6273DE00D0F4EA /* GFPolygon.m in Sources */,
 				9CAEE73C1B600F2F0092C6EA /* ViewController.m in Sources */,
+				9C0495441B62742800D0F4EA /* GFCircularRegion.m in Sources */,
 				9CAEE7391B600F2F0092C6EA /* AppDelegate.m in Sources */,
 				9CAEE75F1B603C310092C6EA /* GFGeofence.m in Sources */,
 				9CAEE7361B600F2F0092C6EA /* main.m in Sources */,
+				9C04953D1B62735E00D0F4EA /* GFMultiPolygon.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
