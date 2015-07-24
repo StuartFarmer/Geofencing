@@ -103,10 +103,15 @@
                     fence.lastState = fence.currentState;
                 }
                 
-                // Send back entered and exited regions to the callback blocks if there are any to send
-                if ([self.enteredRegions count]>0) enterBlock(self.enteredRegions);
-                if ([self.exitedRegions count]>0) exitBlock(self.exitedRegions);
-
+                // Send back entered and exited regions to the callback blocks if there are any to send.
+                if ([self.enteredRegions count]>0) {
+                    enterBlock(self.enteredRegions);
+                    [self.enteredRegions removeAllObjects];
+                }
+                if ([self.exitedRegions count]>0) {
+                    exitBlock(self.exitedRegions);
+                    [self.exitedRegions removeAllObjects];
+                }
             });
             
             // Sleep for the update interval. Update interval must be greater than 1 second.
@@ -120,9 +125,31 @@
     self.monitoring = false;
 }
 
-- (BOOL)location:(CLLocation *)currentLocation IsWithinPolygon:(MKPolygon *)polygon {
-    // insert hit test code here.
-    return true;
+// Hit testing for polygons. Converted from an old C method.
+- (BOOL)location:(CLLocation *)location IsWithinPolygon:(MKPolygon *)polygon {
+    CLLocationCoordinate2D coordinate = {location.coordinate.latitude, location.coordinate.longitude};
+    MKMapPoint mapPoint = MKMapPointForCoordinate(coordinate);
+    
+    CGMutablePathRef mpr = CGPathCreateMutable();
+    MKMapPoint *polygonPoints = polygon.points;
+    size_t nCount = polygon.pointCount;
+    
+    for (int p = 0; p < nCount; p++)
+    {
+        MKMapPoint mp = polygonPoints[p];
+        
+        if (p == 0)
+            CGPathMoveToPoint(mpr, NULL, mp.x, mp.y);
+        else
+            CGPathAddLineToPoint(mpr, NULL, mp.x, mp.y);
+    }
+    
+    CGPoint mapPointAsCGP = CGPointMake(mapPoint.x, mapPoint.y);
+    
+    BOOL pointIsInPolygon = CGPathContainsPoint(mpr, NULL, mapPointAsCGP, FALSE);
+    CGPathRelease(mpr);
+    
+    return pointIsInPolygon;
 }
 
 #pragma CLLocationManager Delegates
