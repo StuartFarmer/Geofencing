@@ -59,6 +59,8 @@
 + (NSArray *)geofenceArrayForIdentifiers:(NSDictionary *)fencesAndIdentifiers {
     NSMutableArray *geofenceArray = [[NSMutableArray alloc] init];
     for (id key in fencesAndIdentifiers) {
+        if (!([fencesAndIdentifiers[key] isKindOfClass:[NSString class]])) @throw [NSException exceptionWithName:@"ImproperIdentifierType" reason:@"An object that is not an NSString is being passed into the argument dictionary for method geofenceArrayForIdentifiers. Only pass NSString objects as the objects, and CLCircularRegion, MKPolygon, or GFGeofence objects as keys." userInfo:nil];
+        
         if ([key isKindOfClass:[CLCircularRegion class]]) {
             GFGeofence *fence = [[GFGeofence alloc] init];
             fence.region = key;
