@@ -7,6 +7,7 @@
 //
 
 #import "ViewController.h"
+#import "StateHelper.h"
 #import "Geofencing.h"
 
 @import MapKit;
@@ -21,16 +22,17 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    
+    MKPolygon *somePolygon = [MKPolygon polygonWithCoordinates:[StateHelper mapPointsforUtah] count:42];
+    GFGeofence *utah = [[GFGeofence alloc] initFromMKPolygon:somePolygon andIdentifier:@"Utah"];
     fencing = [[Geofencing alloc] init];
     
-    CLCircularRegion *test = [[CLCircularRegion alloc] initWithCenter:CLLocationCoordinate2DMake(80, -40) radius:100 identifier:@"test"];
-    GFGeofence *region1 = [[GFGeofence alloc] initFromCLCircularRegion:test andIdentifier:test.identifier];
-    
-    [fencing monitorRegions:[Geofencing geofenceArrayForIdentifiers:@{test : @7}] onEnter:^(NSArray *regions) {
-        NSLog(@"The count of entered regions:%i", regions.count);
+    [fencing monitorRegions:@[utah] onEnter:^(NSArray *regions) {
+        NSLog(@"You're in Utah, baby!");
     } onExit:^(NSArray *regions) {
-        NSLog(@"The count of exited regions:%i", regions.count);
+        NSLog(@"You left Utah.");
     }];
+    
 }
 
 - (void)didReceiveMemoryWarning {

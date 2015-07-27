@@ -16,6 +16,7 @@
 		9CAEE7501B600F2F0092C6EA /* Geofencing_DemoTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 9CAEE74F1B600F2F0092C6EA /* Geofencing_DemoTests.m */; };
 		9CAEE75E1B603C310092C6EA /* Geofencing.m in Sources */ = {isa = PBXBuildFile; fileRef = 9CAEE75B1B603C310092C6EA /* Geofencing.m */; };
 		9CAEE75F1B603C310092C6EA /* GFGeofence.m in Sources */ = {isa = PBXBuildFile; fileRef = 9CAEE75D1B603C310092C6EA /* GFGeofence.m */; };
+		9CCA65541B669E160044F513 /* StateHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = 9CCA65531B669E160044F513 /* StateHelper.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -46,6 +47,8 @@
 		9CAEE75B1B603C310092C6EA /* Geofencing.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Geofencing.m; sourceTree = "<group>"; };
 		9CAEE75C1B603C310092C6EA /* GFGeofence.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GFGeofence.h; sourceTree = "<group>"; };
 		9CAEE75D1B603C310092C6EA /* GFGeofence.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GFGeofence.m; sourceTree = "<group>"; };
+		9CCA65521B669E160044F513 /* StateHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = StateHelper.h; sourceTree = "<group>"; };
+		9CCA65531B669E160044F513 /* StateHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = StateHelper.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -96,6 +99,8 @@
 				9CAEE7401B600F2F0092C6EA /* Images.xcassets */,
 				9CAEE7421B600F2F0092C6EA /* LaunchScreen.xib */,
 				9CAEE7331B600F2F0092C6EA /* Supporting Files */,
+				9CCA65521B669E160044F513 /* StateHelper.h */,
+				9CCA65531B669E160044F513 /* StateHelper.m */,
 			);
 			path = "Geofencing Demo";
 			sourceTree = "<group>";
@@ -238,6 +243,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				9CAEE75E1B603C310092C6EA /* Geofencing.m in Sources */,
+				9CCA65541B669E160044F513 /* StateHelper.m in Sources */,
 				9CAEE73C1B600F2F0092C6EA /* ViewController.m in Sources */,
 				9CAEE7391B600F2F0092C6EA /* AppDelegate.m in Sources */,
 				9CAEE75F1B603C310092C6EA /* GFGeofence.m in Sources */,
