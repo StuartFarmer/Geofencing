@@ -1,19 +1,14 @@
-# Geofencing
-
-### A Cocoa Library That Makes Multi Geofencing a Breeze
 ![Geofencing](fencing.png)
 
-Monitor infiniate amounts of geofences, whether they be CLRegions, or MKPolygons.
+Super simple geofencing for iOS applications.
 
 ####So why Geofencing over CoreLocation's Region Monitoring?
 
-Firstly, CoreLocation relies on delegate methods to handle asynchronous events, which become messy, especially if you are entering and exiting a lot of locations. It also requires a lot of set up and finicking compared to CoreLocation's location updates. This may be because region monitoring includes / overlaps with iBeacon features. It seems that Apple wrote this section of the library with this technology in mind. iBeacons are great, if you have the :moneybag: and time to implement them. Geofences are free and instantly deployable internationally.
+CoreLocation attempts to ease the implementation of geofences with their region monitoring methods. However, these methods are targetted more at developers who want to incorporate iBeacons into their applications, which are costly, and require physical installation. Geofences are digitally deployable, instant, and free.
 
-Also, CoreLocation only allows you to monitor up to 20(:interrobang:) regions at a time, which is unreasonable if you have more than 20 regions to monitor. Geofencing allows you to monitor as many regions as you want.
+CoreLocation does allow geofences of CLCircularRegion objects. However, these regions are simple circles, and CoreLocation only allows you to monitor up to 20 at a time.
 
-Lastly, CoreLocation only supports CLRegions, which include iBeacon regions, and literal circles. If your area is a complex polygon that spans an intricate tract of land, you simply cannot geofence it with the current libraries.
-
-That's why I am developing Geofencing. After the headaches of trying to get some simple GPS functionality working across a group of locations, I figured that others out there are probably having the same problem.
+Geofencing handles geofences differently. Monitor as many CLCircularRegion or complex MKPolygon objects as you'd like using a simple block-based design, and recieve a callback of these objects whenever the user either enters or exits any of the implemented geofences.
 
 ####How to use Geofencing
 Geofencing is still in development, but to use the library, you simply have to initialize a Geofencing object, give it an array of CLCircularRegion and MKPolygon objects, and call the single public method. Here's an example:
