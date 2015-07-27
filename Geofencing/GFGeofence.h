@@ -25,18 +25,18 @@ typedef enum {
     GFMultiPolygon
 } GeofenceType;
 
-// Data
-@property (strong, nonatomic) CLCircularRegion *region;
-@property (strong, nonatomic) MKPolygon *polygon;
-
-@property (strong, nonatomic) id fence;
+// Identifiers
+@property (nonatomic) GeofenceType type;
+@property (strong, nonatomic) NSString *name;
+@property (strong, nonatomic) NSString *identifier;
+@property (strong, nonatomic) NSUUID *UUID;
 
 // Descriptors
 @property (nonatomic) GeofenceState currentState;
 @property (nonatomic) GeofenceState lastState;
 
-// Identifiers
-@property (strong, nonatomic) NSString *name;
-@property (nonatomic) GeofenceType type;
+// Data
+@property (strong, nonatomic) CLCircularRegion *region;
+@property (strong, nonatomic) MKPolygon *polygon;
 
 @end
