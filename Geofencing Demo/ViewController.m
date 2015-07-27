@@ -23,7 +23,8 @@
     [super viewDidLoad];
     fencing = [[Geofencing alloc] init];
     
-    CLCircularRegion *region1 = [[CLCircularRegion alloc] initWithCenter:CLLocationCoordinate2DMake(40, -80) radius:100 identifier:@"1"];
+    CLCircularRegion *test = [[CLCircularRegion alloc] initWithCenter:CLLocationCoordinate2DMake(80, -40) radius:100 identifier:@"test"];
+    GFGeofence *region1 = [[GFGeofence alloc] initFromCLCircularRegion:test andName:@"test"];
     
     [fencing monitorRegions:@[region1] onEnter:^(NSArray *regions) {
         NSLog(@"The count of entered regions:%i", regions.count);

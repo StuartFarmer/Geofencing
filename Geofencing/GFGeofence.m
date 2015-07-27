@@ -1,6 +1,5 @@
 //
-//  SFGeofence.m
-//  Geofense Demo
+//  GFGeofence.m
 //
 //  Created by Stuart Farmer on 7/22/15.
 //  Copyright © 2015 Stuart Farmer. All rights reserved.
@@ -17,6 +16,7 @@
 
     self.region = region;
     self.name = name;
+    self.type = GFCircularRegion;
     
     return self;
 }
@@ -27,6 +27,7 @@
     
     self.region = region;
     self.UUID = UUID;
+    self.type = GFCircularRegion;
     
     return self;
 }
@@ -37,6 +38,7 @@
     
     self.region = region;
     self.identifier = identifier;
+    self.type = GFCircularRegion;
     
     return self;
 }
@@ -47,6 +49,7 @@
     
     self.polygon = polygon;
     self.name = name;
+    self.type = GFPolygon;
     
     return self;
 }
@@ -57,6 +60,7 @@
     
     self.polygon = polygon;
     self.UUID = UUID;
+    self.type = GFPolygon;
     
     return self;
 }
@@ -67,6 +71,7 @@
     
     self.polygon = polygon;
     self.identifier = identifier;
+    self.type = GFPolygon;
     
     return self;
 }

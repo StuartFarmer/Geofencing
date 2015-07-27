@@ -1,13 +1,11 @@
 //
 //  Geofencing.m
-//  Geofense Demo
 //
 //  Created by Stuart Farmer on 7/22/15.
 //  Copyright © 2015 Stuart Farmer. All rights reserved.
 //
 
 #import "Geofencing.h"
-#import "GFGeofence.h"
 
 @interface Geofencing() <CLLocationManagerDelegate> {
     CLLocation *currentLocation;
@@ -62,63 +60,82 @@
             fence.type = GFPolygon;
             [self.geofences addObject:fence];
         }
+        if ([object isKindOfClass:[GFGeofence class]]) {
+            GFGeofence *fence = [[GFGeofence alloc] init];
+            fence = (GFGeofence *)object;
+            
+            // Error catching if fence object is not consistent and will cause problems later on
+            if (!(fence.type == GFCircularRegion || fence.type == GFPolygon)) @throw [NSException exceptionWithName:@"ImproperGeofenceTypePassed" reason:@"A GFGeofence object was passed into monitorRegions method with an improper Geofence type. The type property must be equal to either GFPolygon or GFCircularRegion, depending on the type of geofence you are passing. Use the custom initialization methods or use a proper Geofence type to avoid this error." userInfo:nil];
+
+            if (!(fence.region || fence.polygon)) @throw [NSException exceptionWithName:@"EmptyGFGeofenceObjectIteration" reason:@"A GFGeofence object was passed into monitorRegions method without a CLCircularRegion or MKPolygon in the respective region or polygon properties. Use the custom initialization methods or declare the region or polygon property to avoid this error." userInfo:nil];
+            if ((fence.type == GFPolygon && fence.region) || (fence.type == GFCircularRegion && fence.polygon)) @throw [NSException exceptionWithName:@"MismatchGFGeofenceObjectType" reason:@"A GFGeofence object was passed into monitorRegions method with a mismatched region property and mismatched type. Use the custom initialization methods or make sure your type property matches with the object you are passing into either the region or polygon property." userInfo:nil];
+            
+            fence.currentState = GFOutside;
+            fence.lastState = GFOutside;
+            [self.geofences addObject:fence];
+        }
     }
     
     // Begin location services
     [self.locationManager requestAlwaysAuthorization];
     [self.locationManager startUpdatingLocation];
 
-    // Start running the loop on a non-main thread.
-    dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
-        
-        while (self.monitoring) {
-            dispatch_async(dispatch_get_main_queue(), ^{
-                
-                // Check if location is within any geofences
-                for (GFGeofence *fence in self.geofences) {
-                    
-                    // Test whether or not a user's location is within a region or polygon and adjust the current state accordingly
-                    if (fence.type == GFCircularRegion) {
-                        if ([fence.region containsCoordinate:currentLocation.coordinate]) fence.currentState = GFInside;
-                        else fence.currentState = GFOutside;
-                    } else if (fence.type == GFPolygon) {
-                        if ([self location:currentLocation IsWithinPolygon:fence.polygon]) fence.currentState = GFInside;
-                        else fence.currentState = GFOutside;
-                    }
-                    
-                    // Check if there is a difference in states, and add fence to appropriate array if so
-                    if (fence.currentState != fence.lastState) {
-                        switch (fence.currentState) {
-                            case GFInside:
-                                [self.enteredRegions addObject:fence];
-                                break;
-                            case GFOutside:
-                                [self.exitedRegions addObject:fence];
-                            default:
-                                break;
-                        }
-                    }
-                    
-                    // Update the region's state
-                    fence.lastState = fence.currentState;
-                }
-                
-                // Send back entered and exited regions to the callback blocks if there are any to send.
-                if ([self.enteredRegions count]>0) {
-                    enterBlock(self.enteredRegions);
-                    [self.enteredRegions removeAllObjects];
-                }
-                if ([self.exitedRegions count]>0) {
-                    exitBlock(self.exitedRegions);
-                    [self.exitedRegions removeAllObjects];
-                }
-            });
+    if ([CLLocationManager locationServicesEnabled]) {
+        // Start running the loop on a non-main thread.
+        dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
             
-            // Sleep for the update interval. Update interval must be greater than 1 second.
-            if (self.updateInterval < 1) self.updateInterval = 1;
-            [NSThread sleepForTimeInterval:self.updateInterval];
-        }
-    });
+            while (self.monitoring) {
+                dispatch_async(dispatch_get_main_queue(), ^{
+                    
+                    // Check if location is within any geofences
+                    for (GFGeofence *fence in self.geofences) {
+                        
+                        // Test whether or not a user's location is within a region or polygon and adjust the current state accordingly
+                        if (fence.type == GFCircularRegion) {
+                            if ([fence.region containsCoordinate:currentLocation.coordinate]) fence.currentState = GFInside;
+                            else fence.currentState = GFOutside;
+                        } else if (fence.type == GFPolygon) {
+                            if ([self location:currentLocation IsWithinPolygon:fence.polygon]) fence.currentState = GFInside;
+                            else fence.currentState = GFOutside;
+                        }
+                        
+                        // Check if there is a difference in states, and add fence to appropriate array if so
+                        if (fence.currentState != fence.lastState) {
+                            switch (fence.currentState) {
+                                case GFInside:
+                                    [self.enteredRegions addObject:fence];
+                                    break;
+                                case GFOutside:
+                                    [self.exitedRegions addObject:fence];
+                                default:
+                                    break;
+                            }
+                        }
+                        
+                        // Update the region's state
+                        fence.lastState = fence.currentState;
+                    }
+                    
+                    // Send back entered and exited regions to the callback blocks if there are any to send.
+                    if ([self.enteredRegions count]>0) {
+                        enterBlock(self.enteredRegions);
+                        [self.enteredRegions removeAllObjects];
+                    }
+                    if ([self.exitedRegions count]>0) {
+                        exitBlock(self.exitedRegions);
+                        [self.exitedRegions removeAllObjects];
+                    }
+                });
+                
+                // Sleep for the update interval. Update interval must be greater than 1 second.
+                if (self.updateInterval < 1) self.updateInterval = 1;
+                [NSThread sleepForTimeInterval:self.updateInterval];
+            }
+        });
+    }
+    else {
+        NSLog(@"Location services are not enabled. Unable to start monitoring geofences.");
+    }
 }
 
 - (void)stopMonitoring {

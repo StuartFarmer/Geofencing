@@ -1,12 +1,12 @@
 //
 //  Geofencing.h
-//  Geofense Demo
 //
 //  Created by Stuart Farmer on 7/22/15.
 //  Copyright © 2015 Stuart Farmer. All rights reserved.
 //
 
 #import <Foundation/Foundation.h>
+#import "GFGeofence.h"
 
 @import CoreLocation;
 

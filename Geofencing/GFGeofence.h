@@ -1,6 +1,5 @@
 //
-//  SFGeofence.h
-//  Geofense Demo
+//  GFGeofence.h
 //
 //  Created by Stuart Farmer on 7/22/15.
 //  Copyright © 2015 Stuart Farmer. All rights reserved.
@@ -16,13 +15,12 @@
 typedef enum{
     GFInside,
     GFOutside,
-    GFNeither,
 } GeofenceState;
 
 typedef enum {
+    GFInvalid,
     GFCircularRegion,
     GFPolygon,
-    GFMultiPolygon
 } GeofenceType;
 
 // Identifiers
@@ -38,5 +36,14 @@ typedef enum {
 // Data
 @property (strong, nonatomic) CLCircularRegion *region;
 @property (strong, nonatomic) MKPolygon *polygon;
+
+// Initialization Methods
+- (id) initFromCLCircularRegion:(CLCircularRegion *)region andName:(NSString *)name;
+- (id) initFromCLCircularRegion:(CLCircularRegion *)region andUUID:(NSUUID *)UUID;
+- (id) initFromCLCircularRegion:(CLCircularRegion *)region andIdentifier:(NSString *)identifier;
+
+- (id) initFromMKPolygon:(MKPolygon *)polygon andName:(NSString *)name;
+- (id) initFromMKPolygon:(MKPolygon *)polygon andUUID:(NSUUID *)UUID;
+- (id) initFromMKPolygon:(MKPolygon *)polygon andIdentifier:(NSString *)identifier;
 
 @end
