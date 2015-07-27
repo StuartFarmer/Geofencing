@@ -152,7 +152,7 @@
     return pointIsInPolygon;
 }
 
-#pragma CLLocationManager Delegates
+#pragma CLLocationManager Delegate Methods
 - (void)locationManager:(nonnull CLLocationManager *)manager didUpdateLocations:(nonnull NSArray *)locations {
     currentLocation = [locations lastObject];
 }
