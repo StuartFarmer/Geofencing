@@ -1,8 +1,25 @@
 //
-//  Geofencing.m
+// The MIT License (MIT)
 //
-//  Created by Stuart Farmer on 7/22/15.
-//  Copyright © 2015 Stuart Farmer. All rights reserved.
+// Copyright (c) 2015 Stuart Farmer
+//
+// Permission is hereby granted, free of charge, to any person obtaining a copy
+// of this software and associated documentation files (the "Software"), to deal
+// in the Software without restriction, including without limitation the rights
+// to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+// copies of the Software, and to permit persons to whom the Software is
+// furnished to do so, subject to the following conditions:
+//
+// The above copyright notice and this permission notice shall be included in all
+// copies or substantial portions of the Software.
+//
+// THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+// IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+// FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+// AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+// LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+// OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+// SOFTWARE.
 //
 
 #import "Geofencing.h"
@@ -15,6 +32,7 @@
 
 @implementation Geofencing
 
+#pragma Intialization Method
 - (id) init {
     self = [super init];
     if( !self ) return nil;
@@ -37,6 +55,48 @@
     return self;
 }
 
+#pragma Class Methods for returning usable arrays from dictionaries
++ (NSArray *)geofenceArrayForIdentifiers:(NSDictionary *)fencesAndIdentifiers {
+    NSMutableArray *geofenceArray = [[NSMutableArray alloc] init];
+    for (id key in fencesAndIdentifiers) {
+        if ([key isKindOfClass:[CLCircularRegion class]]) {
+            GFGeofence *fence = [[GFGeofence alloc] init];
+            fence.region = key;
+            fence.currentState = GFOutside;
+            fence.lastState = GFOutside;
+            fence.type = GFCircularRegion;
+            fence.identifier = fencesAndIdentifiers[key];
+            [geofenceArray addObject:fence];
+        }
+        if ([key isKindOfClass:[MKPolygon class]]) {
+            GFGeofence *fence = [[GFGeofence alloc] init];
+            fence.polygon = key;
+            fence.currentState = GFOutside;
+            fence.lastState = GFOutside;
+            fence.type = GFPolygon;
+            fence.identifier = fencesAndIdentifiers[key];
+            [geofenceArray addObject:fence];
+        }
+        if ([key isKindOfClass:[GFGeofence class]]) {
+            GFGeofence *fence = [[GFGeofence alloc] init];
+            fence = (GFGeofence *)key;
+            
+            // Error catching if fence object is not consistent and will cause problems later on
+            if (!(fence.type == GFCircularRegion || fence.type == GFPolygon)) @throw [NSException exceptionWithName:@"ImproperGeofenceTypePassed" reason:@"A GFGeofence object was passed into geofenceArrayForIdentifiers method with an improper Geofence type. The type property must be equal to either GFPolygon or GFCircularRegion, depending on the type of geofence you are passing. Use the custom initialization methods or use a proper Geofence type to avoid this error." userInfo:nil];
+            
+            if (!(fence.region || fence.polygon)) @throw [NSException exceptionWithName:@"EmptyGFGeofenceObjectIteration" reason:@"A GFGeofence object was passed into geofenceArrayForIdentifiers method without a CLCircularRegion or MKPolygon in the respective region or polygon properties. Use the custom initialization methods or declare the region or polygon property to avoid this error." userInfo:nil];
+            if ((fence.type == GFPolygon && fence.region) || (fence.type == GFCircularRegion && fence.polygon)) @throw [NSException exceptionWithName:@"MismatchGFGeofenceObjectType" reason:@"A GFGeofence object was passed into geofenceArrayForIdentifiers method with a mismatched region property and mismatched type. Use the custom initialization methods or make sure your type property matches with the object you are passing into either the region or polygon property." userInfo:nil];
+            
+            fence.identifier = fencesAndIdentifiers[key];
+            fence.currentState = GFOutside;
+            fence.lastState = GFOutside;
+            [geofenceArray addObject:fence];
+        }
+    }
+    return (NSArray *)geofenceArray;
+}
+
+#pragma Instance Methods
 - (void)monitorRegions:(NSArray *)fences onEnter:(regions)enterBlock onExit:(regions)exitBlock {
     
     // Begin monitoring
