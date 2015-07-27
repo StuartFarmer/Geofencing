@@ -18,41 +18,27 @@ That's why I am developing Geofencing. After the headaches of trying to get some
 ####How to use Geofencing
 Geofencing is still in development, but to use the library, you simply have to initialize a Geofencing object, give it an array of CLCircularRegion and MKPolygon objects, and call the single public method. Here's an example:
 
->	NSMutableArray *geofences = [[NSMutableArray alloc] init];
+```objective-c
+NSMutableArray *geofences = [[NSMutableArray alloc] init];
+CLCircularRegion *someRegion = [[CLCircularRegion alloc] initWithCenter:CLLocationCoordinate2DMake(-40, 80) radius:100 identifier:nil];
+Geofencing *fencing = [[Geofencing alloc] init];
+[fencing monitorRegions:@[] onEnter:^(NSArray *regions) {
+		for (CLCircularRegion *region in regions) {
+			// do something with the CLCircularRegions
+		}
 
->	    CLCircularRegion *someRegion = [[CLCircularRegion alloc] initWithCenter:CLLocationCoordinate2DMake(-40, 80) radius:100 identifier:nil];
-
->	    Geofencing *fencing = [[Geofencing alloc] init];
-
->	    [fencing monitorRegions:@[] onEnter:^(NSArray *regions) {
-
->	        for (CLCircularRegion *region in regions) {
-
->	            // do something with the CLCircularRegions
-
->	        }
-
->	        for (MKPolygon *polygon in regions) {
-
->	            // do something with the MKPolygons
-
->	        }
-
->	    } onExit:^(NSArray *regions) {
-
->	        for (CLCircularRegion *region in regions) {
-
->	            // do something with the CLCircularRegions
-
->	        }
-
->	        for (MKPolygon *polygon in regions) {
-
->	            // do something with the MKPolygons
-
->	        }
-
->	    }];
+		for (MKPolygon *polygon in regions) {
+		 // do something with the MKPolygons
+		}
+	} onExit:^(NSArray *regions) {
+	    for (CLCircularRegion *region in regions) {
+	        // do something with the CLCircularRegions
+	    }
+	    for (MKPolygon *polygon in regions) {
+	        // do something with the MKPolygons
+	    }
+	}];
+```
 
 Ideally, you'll pull region and polygon data from a database of regions online, pipe it into Geofencing, and be good to go to handle sending push notifications or monitoring analytical data whenever your mobile user enters or exits a specified region.
 
