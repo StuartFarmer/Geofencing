@@ -9,9 +9,13 @@
 #import <Foundation/Foundation.h>
 
 @import CoreLocation;
+@import MapKit;
 
 @interface StateHelper : NSObject
 
-+ (CLLocationCoordinate2D *)mapPointsforUtah;
++ (MKPolygon *)MKPolygonForUtah;
++ (MKPolygon *)MKPolygonForColorado;
++ (MKPolygon *)MKPolygonForArizona;
++ (MKPolygon *)MKPolygonForNewMexico;
 
 @end

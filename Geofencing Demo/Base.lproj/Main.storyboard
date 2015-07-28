@@ -8,37 +8,7 @@
         <!--View Controller-->
         <scene sceneID="ufC-wZ-h7g">
             <objects>
-                <viewController id="vXZ-lx-hvc" customClass="ViewController" sceneMemberID="viewController">
-                    <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="jyV-Pf-zRb"/>
-                        <viewControllerLayoutGuide type="bottom" id="2fi-mo-0CV"/>
-                    </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="kh9-bI-dsS">
-                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
-                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                        <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Au3-L5-SEX">
-                                <rect key="frame" x="156" y="174" width="289" height="251"/>
-                                <color key="backgroundColor" red="0.90196078430000004" green="0.90196078430000004" blue="0.90196078430000004" alpha="1" colorSpace="calibratedRGB"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="289" id="Exx-HL-jeh"/>
-                                </constraints>
-                                <state key="normal" title="Button">
-                                    <color key="titleColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                                <connections>
-                                    <action selector="startMonitoringPressed:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="jXE-cp-H9O"/>
-                                </connections>
-                            </button>
-                        </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
-                        <constraints>
-                            <constraint firstItem="Au3-L5-SEX" firstAttribute="centerY" secondItem="kh9-bI-dsS" secondAttribute="centerY" id="6fZ-1x-diJ"/>
-                            <constraint firstItem="Au3-L5-SEX" firstAttribute="centerX" secondItem="kh9-bI-dsS" secondAttribute="centerX" id="YVe-Fs-jMc"/>
-                            <constraint firstItem="Au3-L5-SEX" firstAttribute="top" secondItem="jyV-Pf-zRb" secondAttribute="bottom" constant="154" id="fjf-Hb-mjA"/>
-                        </constraints>
-                    </view>
-                </viewController>
+                <viewController id="vXZ-lx-hvc" customClass="ViewController" sceneMemberID="viewController"/>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="x5A-6p-PRh" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="305" y="389"/>
