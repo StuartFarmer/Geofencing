@@ -125,6 +125,7 @@
                         <outlet property="capitalLabel" destination="crb-j4-5Ke" id="ATS-AU-uvd"/>
                         <outlet property="factsTextView" destination="dEI-kJ-HYn" id="tnb-gH-p8z"/>
                         <outlet property="flagImageView" destination="J5H-4m-UO9" id="UfC-7I-qqp"/>
+                        <outlet property="moreInfoButton" destination="aai-Eb-2L0" id="Rc3-B8-eE2"/>
                         <outlet property="populationLabel" destination="9uY-he-fWi" id="QX8-Ep-zAD"/>
                         <outlet property="stateBirdLabel" destination="LwJ-Cl-KRe" id="LsC-MC-gdj"/>
                         <outlet property="titleLabel" destination="M9w-v4-u3j" id="PFM-fQ-c2O"/>

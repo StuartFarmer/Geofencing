@@ -1,3 +1,26 @@
+//
+// The MIT License (MIT)
+//
+// Copyright (c) 2015 Stuart Farmer
+//
+// Permission is hereby granted, free of charge, to any person obtaining a copy
+// of this software and associated documentation files (the "Software"), to deal
+// in the Software without restriction, including without limitation the rights
+// to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+// copies of the Software, and to permit persons to whom the Software is
+// furnished to do so, subject to the following conditions:
+//
+// The above copyright notice and this permission notice shall be included in all
+// copies or substantial portions of the Software.
+//
+// THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+// IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+// FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+// AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+// LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+// OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+// SOFTWARE.
+//
 
 #import "ViewController.h"
 #import "StateHelper.h"
@@ -7,8 +30,9 @@
 
 @interface ViewController () <MKMapViewDelegate> {
     Geofencing *fencing;
-    MKMapView *mapView;
     NSString *currentState;
+    
+    UIActivityIndicatorView *activityIndicator;
 }
 
 @end
@@ -17,6 +41,23 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    
+    // Hide UI elements and start activity indicator until application gets user's location
+    self.backgroundImageView.image = [UIImage imageNamed:@"launchBg.jpg"];
+    self.titleLabel.alpha = 0;
+    self.flagImageView.alpha = 0;
+    self.capitalLabel.alpha = 0;
+    self.populationLabel.alpha = 0;
+    self.stateBirdLabel.alpha = 0;
+    self.factsTextView.alpha = 0;
+    self.moreInfoButton.alpha = 0;
+    
+    activityIndicator = [[UIActivityIndicatorView alloc] initWithActivityIndicatorStyle:UIActivityIndicatorViewStyleWhiteLarge];
+    activityIndicator.center = self.view.center;
+    // If you need custom color, use color property
+    // activityIndicator.color = yourDesirableColor;
+    [self.view addSubview:activityIndicator];
+    [activityIndicator startAnimating];
     
     // Create an array of the geofences you want to monitor
     NSMutableArray *southWesternStates = [[NSMutableArray alloc] init];
@@ -40,7 +81,19 @@
             currentState = fence.identifier;
             [self updateUIForState:currentState];
         }
-    } onExit:nil];
+        activityIndicator.hidden = true;
+    } onExit:^(NSArray *regions){
+        activityIndicator.hidden = false;
+        [UIView animateWithDuration:0.5 animations:^{
+            self.titleLabel.alpha = 0;
+            self.flagImageView.alpha = 0;
+            self.capitalLabel.alpha = 0;
+            self.populationLabel.alpha = 0;
+            self.stateBirdLabel.alpha = 0;
+            self.factsTextView.alpha = 0;
+            self.moreInfoButton.alpha = 0;
+        }];
+    }];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -86,6 +139,16 @@
         self.stateBirdLabel.text = @"State bird: Greater Roadrunner";
         self.factsTextView.text = @"New Mexico is a southwestern state whose diverse terrain encompasses the Chihuahuan Desert and the Sangre de Cristo Mountains. Its capital, Santa Fe, founded in 1610, is known for upscale spas and Spanish colonial architecture. It's also home to a vibrant arts scene, as well as the Georgia O’Keeffe Museum, with its iconic New Mexican landscape paintings, and the open-air Santa Fe Opera.";
     }
+    
+    [UIView animateWithDuration:0.5 animations:^{
+        self.titleLabel.alpha = 1;
+        self.flagImageView.alpha = 1;
+        self.capitalLabel.alpha = 1;
+        self.populationLabel.alpha = 1;
+        self.stateBirdLabel.alpha = 1;
+        self.factsTextView.alpha = 1;
+        self.moreInfoButton.alpha = 1;
+    }];
 }
 
 - (IBAction)moreInfoPressed:(id)sender {
