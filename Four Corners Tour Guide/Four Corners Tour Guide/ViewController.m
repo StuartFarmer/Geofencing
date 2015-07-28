@@ -81,19 +81,7 @@
             currentState = fence.identifier;
             [self updateUIForState:currentState];
         }
-        activityIndicator.hidden = true;
-    } onExit:^(NSArray *regions){
-        activityIndicator.hidden = false;
-        [UIView animateWithDuration:0.5 animations:^{
-            self.titleLabel.alpha = 0;
-            self.flagImageView.alpha = 0;
-            self.capitalLabel.alpha = 0;
-            self.populationLabel.alpha = 0;
-            self.stateBirdLabel.alpha = 0;
-            self.factsTextView.alpha = 0;
-            self.moreInfoButton.alpha = 0;
-        }];
-    }];
+    } onExit:nil];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -103,6 +91,17 @@
 
 #pragma UI Update Methods
 - (void)updateUIForState:(NSString *)identifier {
+    activityIndicator.hidden = false;
+    [UIView animateWithDuration:0.5 animations:^{
+        self.titleLabel.alpha = 0;
+        self.flagImageView.alpha = 0;
+        self.capitalLabel.alpha = 0;
+        self.populationLabel.alpha = 0;
+        self.stateBirdLabel.alpha = 0;
+        self.factsTextView.alpha = 0;
+        self.moreInfoButton.alpha = 0;
+    }];
+
     if ([identifier isEqual:@"Utah"]) {
         self.backgroundImageView.image = [UIImage imageNamed:@"utahBg.jpg"];
         self.titleLabel.text = @"Welcome to Utah!";
@@ -149,6 +148,7 @@
         self.factsTextView.alpha = 1;
         self.moreInfoButton.alpha = 1;
     }];
+    activityIndicator.hidden = true;
 }
 
 - (IBAction)moreInfoPressed:(id)sender {
