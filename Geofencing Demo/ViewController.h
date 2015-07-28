@@ -10,7 +10,9 @@
 
 @interface ViewController : UIViewController
 
-- (IBAction)startMonitoringPressed:(id)sender;
+@property (strong, nonatomic) IBOutlet UIImageView *stateBackgroundImageView;
+@property (strong, nonatomic) IBOutlet UILabel *welcomeToStateLabel;
+@property (strong, nonatomic) IBOutlet UIImageView *stateFlagImageView;
 
 @end
 

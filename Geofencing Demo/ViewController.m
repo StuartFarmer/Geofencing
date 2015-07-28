@@ -77,6 +77,7 @@
     // Dispose of any resources that can be recreated.
 }
 
+#pragma MapKit Delegate Methods
 - (MKOverlayView *)mapView:(MKMapView *)mapView viewForOverlay:(id<MKOverlay>)overlay
 {
     if ([overlay isKindOfClass:[MKPolygon class]])
@@ -88,6 +89,11 @@
         return aView;
     }
     return nil;
+}
+
+#pragma UI Update Methods
+- (void)updateUIForState:(NSString *)identifier {
+    
 }
 
 @end
