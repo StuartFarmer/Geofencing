@@ -1,0 +1,513 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		9C39048D1B68106800FFDA73 /* arizonaBg.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 9C3904851B68106800FFDA73 /* arizonaBg.jpg */; };
+		9C39048E1B68106800FFDA73 /* arizonaFlag.png in Resources */ = {isa = PBXBuildFile; fileRef = 9C3904861B68106800FFDA73 /* arizonaFlag.png */; };
+		9C39048F1B68106800FFDA73 /* coloradoBg.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 9C3904871B68106800FFDA73 /* coloradoBg.jpg */; };
+		9C3904901B68106800FFDA73 /* coloradoFlag.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 9C3904881B68106800FFDA73 /* coloradoFlag.jpg */; };
+		9C3904911B68106800FFDA73 /* newMexicoBg.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 9C3904891B68106800FFDA73 /* newMexicoBg.jpg */; };
+		9C3904921B68106800FFDA73 /* newMexicoFlag.png in Resources */ = {isa = PBXBuildFile; fileRef = 9C39048A1B68106800FFDA73 /* newMexicoFlag.png */; };
+		9C3904931B68106800FFDA73 /* utahBg.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 9C39048B1B68106800FFDA73 /* utahBg.jpg */; };
+		9C3904941B68106800FFDA73 /* utahFlag.png in Resources */ = {isa = PBXBuildFile; fileRef = 9C39048C1B68106800FFDA73 /* utahFlag.png */; };
+		9C3904961B68118A00FFDA73 /* launchBg.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 9C3904951B68118A00FFDA73 /* launchBg.jpg */; };
+		9C8E2DAA1B680EAD008B926A /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 9C8E2DA91B680EAD008B926A /* main.m */; };
+		9C8E2DAD1B680EAD008B926A /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 9C8E2DAC1B680EAD008B926A /* AppDelegate.m */; };
+		9C8E2DB01B680EAD008B926A /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9C8E2DAF1B680EAD008B926A /* ViewController.m */; };
+		9C8E2DB31B680EAD008B926A /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9C8E2DB11B680EAD008B926A /* Main.storyboard */; };
+		9C8E2DB51B680EAD008B926A /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9C8E2DB41B680EAD008B926A /* Images.xcassets */; };
+		9C8E2DB81B680EAD008B926A /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9C8E2DB61B680EAD008B926A /* LaunchScreen.xib */; };
+		9C8E2DC41B680EAD008B926A /* Four_Corners_Tour_GuideTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 9C8E2DC31B680EAD008B926A /* Four_Corners_Tour_GuideTests.m */; };
+		9C8E2DCF1B680F20008B926A /* StateHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = 9C8E2DCE1B680F20008B926A /* StateHelper.m */; };
+		9C8E2DD41B680F31008B926A /* Geofencing.m in Sources */ = {isa = PBXBuildFile; fileRef = 9C8E2DD11B680F31008B926A /* Geofencing.m */; };
+		9C8E2DD51B680F31008B926A /* GFGeofence.m in Sources */ = {isa = PBXBuildFile; fileRef = 9C8E2DD31B680F31008B926A /* GFGeofence.m */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		9C8E2DBE1B680EAD008B926A /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 9C8E2D9C1B680EAD008B926A /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 9C8E2DA31B680EAD008B926A;
+			remoteInfo = "Four Corners Tour Guide";
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		9C3904851B68106800FFDA73 /* arizonaBg.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = arizonaBg.jpg; sourceTree = "<group>"; };
+		9C3904861B68106800FFDA73 /* arizonaFlag.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = arizonaFlag.png; sourceTree = "<group>"; };
+		9C3904871B68106800FFDA73 /* coloradoBg.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = coloradoBg.jpg; sourceTree = "<group>"; };
+		9C3904881B68106800FFDA73 /* coloradoFlag.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = coloradoFlag.jpg; sourceTree = "<group>"; };
+		9C3904891B68106800FFDA73 /* newMexicoBg.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = newMexicoBg.jpg; sourceTree = "<group>"; };
+		9C39048A1B68106800FFDA73 /* newMexicoFlag.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = newMexicoFlag.png; sourceTree = "<group>"; };
+		9C39048B1B68106800FFDA73 /* utahBg.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = utahBg.jpg; sourceTree = "<group>"; };
+		9C39048C1B68106800FFDA73 /* utahFlag.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = utahFlag.png; sourceTree = "<group>"; };
+		9C3904951B68118A00FFDA73 /* launchBg.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = launchBg.jpg; sourceTree = "<group>"; };
+		9C8E2DA41B680EAD008B926A /* Four Corners Tour Guide.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Four Corners Tour Guide.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		9C8E2DA81B680EAD008B926A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		9C8E2DA91B680EAD008B926A /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		9C8E2DAB1B680EAD008B926A /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
+		9C8E2DAC1B680EAD008B926A /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
+		9C8E2DAE1B680EAD008B926A /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
+		9C8E2DAF1B680EAD008B926A /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
+		9C8E2DB21B680EAD008B926A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		9C8E2DB41B680EAD008B926A /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
+		9C8E2DB71B680EAD008B926A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
+		9C8E2DBD1B680EAD008B926A /* Four Corners Tour GuideTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Four Corners Tour GuideTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
+		9C8E2DC21B680EAD008B926A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		9C8E2DC31B680EAD008B926A /* Four_Corners_Tour_GuideTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Four_Corners_Tour_GuideTests.m; sourceTree = "<group>"; };
+		9C8E2DCD1B680F20008B926A /* StateHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = StateHelper.h; sourceTree = "<group>"; };
+		9C8E2DCE1B680F20008B926A /* StateHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = StateHelper.m; sourceTree = "<group>"; };
+		9C8E2DD01B680F31008B926A /* Geofencing.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Geofencing.h; path = ../../Geofencing/Geofencing.h; sourceTree = "<group>"; };
+		9C8E2DD11B680F31008B926A /* Geofencing.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Geofencing.m; path = ../../Geofencing/Geofencing.m; sourceTree = "<group>"; };
+		9C8E2DD21B680F31008B926A /* GFGeofence.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GFGeofence.h; path = ../../Geofencing/GFGeofence.h; sourceTree = "<group>"; };
+		9C8E2DD31B680F31008B926A /* GFGeofence.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = GFGeofence.m; path = ../../Geofencing/GFGeofence.m; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		9C8E2DA11B680EAD008B926A /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		9C8E2DBA1B680EAD008B926A /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		9C3904821B68101700FFDA73 /* Geofencing */ = {
+			isa = PBXGroup;
+			children = (
+				9C8E2DD01B680F31008B926A /* Geofencing.h */,
+				9C8E2DD11B680F31008B926A /* Geofencing.m */,
+				9C8E2DD21B680F31008B926A /* GFGeofence.h */,
+				9C8E2DD31B680F31008B926A /* GFGeofence.m */,
+			);
+			name = Geofencing;
+			sourceTree = "<group>";
+		};
+		9C3904831B68101D00FFDA73 /* Classes */ = {
+			isa = PBXGroup;
+			children = (
+				9C8E2DCD1B680F20008B926A /* StateHelper.h */,
+				9C8E2DCE1B680F20008B926A /* StateHelper.m */,
+			);
+			name = Classes;
+			sourceTree = "<group>";
+		};
+		9C3904841B68106800FFDA73 /* Images */ = {
+			isa = PBXGroup;
+			children = (
+				9C3904951B68118A00FFDA73 /* launchBg.jpg */,
+				9C3904851B68106800FFDA73 /* arizonaBg.jpg */,
+				9C3904861B68106800FFDA73 /* arizonaFlag.png */,
+				9C3904871B68106800FFDA73 /* coloradoBg.jpg */,
+				9C3904881B68106800FFDA73 /* coloradoFlag.jpg */,
+				9C3904891B68106800FFDA73 /* newMexicoBg.jpg */,
+				9C39048A1B68106800FFDA73 /* newMexicoFlag.png */,
+				9C39048B1B68106800FFDA73 /* utahBg.jpg */,
+				9C39048C1B68106800FFDA73 /* utahFlag.png */,
+			);
+			path = Images;
+			sourceTree = SOURCE_ROOT;
+		};
+		9C8E2D9B1B680EAD008B926A = {
+			isa = PBXGroup;
+			children = (
+				9C8E2DA61B680EAD008B926A /* Four Corners Tour Guide */,
+				9C8E2DC01B680EAD008B926A /* Four Corners Tour GuideTests */,
+				9C8E2DA51B680EAD008B926A /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		9C8E2DA51B680EAD008B926A /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				9C8E2DA41B680EAD008B926A /* Four Corners Tour Guide.app */,
+				9C8E2DBD1B680EAD008B926A /* Four Corners Tour GuideTests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		9C8E2DA61B680EAD008B926A /* Four Corners Tour Guide */ = {
+			isa = PBXGroup;
+			children = (
+				9C3904821B68101700FFDA73 /* Geofencing */,
+				9C3904831B68101D00FFDA73 /* Classes */,
+				9C3904841B68106800FFDA73 /* Images */,
+				9C8E2DAB1B680EAD008B926A /* AppDelegate.h */,
+				9C8E2DAC1B680EAD008B926A /* AppDelegate.m */,
+				9C8E2DAE1B680EAD008B926A /* ViewController.h */,
+				9C8E2DAF1B680EAD008B926A /* ViewController.m */,
+				9C8E2DB11B680EAD008B926A /* Main.storyboard */,
+				9C8E2DB41B680EAD008B926A /* Images.xcassets */,
+				9C8E2DB61B680EAD008B926A /* LaunchScreen.xib */,
+				9C8E2DA71B680EAD008B926A /* Supporting Files */,
+			);
+			path = "Four Corners Tour Guide";
+			sourceTree = "<group>";
+		};
+		9C8E2DA71B680EAD008B926A /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				9C8E2DA81B680EAD008B926A /* Info.plist */,
+				9C8E2DA91B680EAD008B926A /* main.m */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		9C8E2DC01B680EAD008B926A /* Four Corners Tour GuideTests */ = {
+			isa = PBXGroup;
+			children = (
+				9C8E2DC31B680EAD008B926A /* Four_Corners_Tour_GuideTests.m */,
+				9C8E2DC11B680EAD008B926A /* Supporting Files */,
+			);
+			path = "Four Corners Tour GuideTests";
+			sourceTree = "<group>";
+		};
+		9C8E2DC11B680EAD008B926A /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				9C8E2DC21B680EAD008B926A /* Info.plist */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		9C8E2DA31B680EAD008B926A /* Four Corners Tour Guide */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 9C8E2DC71B680EAD008B926A /* Build configuration list for PBXNativeTarget "Four Corners Tour Guide" */;
+			buildPhases = (
+				9C8E2DA01B680EAD008B926A /* Sources */,
+				9C8E2DA11B680EAD008B926A /* Frameworks */,
+				9C8E2DA21B680EAD008B926A /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "Four Corners Tour Guide";
+			productName = "Four Corners Tour Guide";
+			productReference = 9C8E2DA41B680EAD008B926A /* Four Corners Tour Guide.app */;
+			productType = "com.apple.product-type.application";
+		};
+		9C8E2DBC1B680EAD008B926A /* Four Corners Tour GuideTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 9C8E2DCA1B680EAD008B926A /* Build configuration list for PBXNativeTarget "Four Corners Tour GuideTests" */;
+			buildPhases = (
+				9C8E2DB91B680EAD008B926A /* Sources */,
+				9C8E2DBA1B680EAD008B926A /* Frameworks */,
+				9C8E2DBB1B680EAD008B926A /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				9C8E2DBF1B680EAD008B926A /* PBXTargetDependency */,
+			);
+			name = "Four Corners Tour GuideTests";
+			productName = "Four Corners Tour GuideTests";
+			productReference = 9C8E2DBD1B680EAD008B926A /* Four Corners Tour GuideTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		9C8E2D9C1B680EAD008B926A /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0630;
+				ORGANIZATIONNAME = "Stuart Farmer";
+				TargetAttributes = {
+					9C8E2DA31B680EAD008B926A = {
+						CreatedOnToolsVersion = 6.3.2;
+					};
+					9C8E2DBC1B680EAD008B926A = {
+						CreatedOnToolsVersion = 6.3.2;
+						TestTargetID = 9C8E2DA31B680EAD008B926A;
+					};
+				};
+			};
+			buildConfigurationList = 9C8E2D9F1B680EAD008B926A /* Build configuration list for PBXProject "Four Corners Tour Guide" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 9C8E2D9B1B680EAD008B926A;
+			productRefGroup = 9C8E2DA51B680EAD008B926A /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				9C8E2DA31B680EAD008B926A /* Four Corners Tour Guide */,
+				9C8E2DBC1B680EAD008B926A /* Four Corners Tour GuideTests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		9C8E2DA21B680EAD008B926A /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				9C3904901B68106800FFDA73 /* coloradoFlag.jpg in Resources */,
+				9C3904921B68106800FFDA73 /* newMexicoFlag.png in Resources */,
+				9C8E2DB31B680EAD008B926A /* Main.storyboard in Resources */,
+				9C39048F1B68106800FFDA73 /* coloradoBg.jpg in Resources */,
+				9C3904941B68106800FFDA73 /* utahFlag.png in Resources */,
+				9C3904931B68106800FFDA73 /* utahBg.jpg in Resources */,
+				9C39048D1B68106800FFDA73 /* arizonaBg.jpg in Resources */,
+				9C8E2DB81B680EAD008B926A /* LaunchScreen.xib in Resources */,
+				9C39048E1B68106800FFDA73 /* arizonaFlag.png in Resources */,
+				9C3904911B68106800FFDA73 /* newMexicoBg.jpg in Resources */,
+				9C8E2DB51B680EAD008B926A /* Images.xcassets in Resources */,
+				9C3904961B68118A00FFDA73 /* launchBg.jpg in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		9C8E2DBB1B680EAD008B926A /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		9C8E2DA01B680EAD008B926A /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				9C8E2DD41B680F31008B926A /* Geofencing.m in Sources */,
+				9C8E2DB01B680EAD008B926A /* ViewController.m in Sources */,
+				9C8E2DD51B680F31008B926A /* GFGeofence.m in Sources */,
+				9C8E2DCF1B680F20008B926A /* StateHelper.m in Sources */,
+				9C8E2DAD1B680EAD008B926A /* AppDelegate.m in Sources */,
+				9C8E2DAA1B680EAD008B926A /* main.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		9C8E2DB91B680EAD008B926A /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				9C8E2DC41B680EAD008B926A /* Four_Corners_Tour_GuideTests.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		9C8E2DBF1B680EAD008B926A /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 9C8E2DA31B680EAD008B926A /* Four Corners Tour Guide */;
+			targetProxy = 9C8E2DBE1B680EAD008B926A /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		9C8E2DB11B680EAD008B926A /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				9C8E2DB21B680EAD008B926A /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		9C8E2DB61B680EAD008B926A /* LaunchScreen.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				9C8E2DB71B680EAD008B926A /* Base */,
+			);
+			name = LaunchScreen.xib;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		9C8E2DC51B680EAD008B926A /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.3;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+			};
+			name = Debug;
+		};
+		9C8E2DC61B680EAD008B926A /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.3;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = iphoneos;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		9C8E2DC81B680EAD008B926A /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				INFOPLIST_FILE = "Four Corners Tour Guide/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Debug;
+		};
+		9C8E2DC91B680EAD008B926A /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				INFOPLIST_FILE = "Four Corners Tour Guide/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Release;
+		};
+		9C8E2DCB1B680EAD008B926A /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(inherited)",
+				);
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				INFOPLIST_FILE = "Four Corners Tour GuideTests/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Four Corners Tour Guide.app/Four Corners Tour Guide";
+			};
+			name = Debug;
+		};
+		9C8E2DCC1B680EAD008B926A /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(inherited)",
+				);
+				INFOPLIST_FILE = "Four Corners Tour GuideTests/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Four Corners Tour Guide.app/Four Corners Tour Guide";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		9C8E2D9F1B680EAD008B926A /* Build configuration list for PBXProject "Four Corners Tour Guide" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				9C8E2DC51B680EAD008B926A /* Debug */,
+				9C8E2DC61B680EAD008B926A /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		9C8E2DC71B680EAD008B926A /* Build configuration list for PBXNativeTarget "Four Corners Tour Guide" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				9C8E2DC81B680EAD008B926A /* Debug */,
+				9C8E2DC91B680EAD008B926A /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		9C8E2DCA1B680EAD008B926A /* Build configuration list for PBXNativeTarget "Four Corners Tour GuideTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				9C8E2DCB1B680EAD008B926A /* Debug */,
+				9C8E2DCC1B680EAD008B926A /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 9C8E2D9C1B680EAD008B926A /* Project object */;
+}
