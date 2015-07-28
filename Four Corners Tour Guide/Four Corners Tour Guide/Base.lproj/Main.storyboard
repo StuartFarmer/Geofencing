@@ -77,6 +77,9 @@
                                 <state key="normal" title="Tap here for more info...">
                                     <color key="titleColor" red="0.96862745100000003" green="0.96862745100000003" blue="0.96862745100000003" alpha="1" colorSpace="calibratedRGB"/>
                                 </state>
+                                <connections>
+                                    <action selector="moreInfoPressed:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="Anf-zD-Zmc"/>
+                                </connections>
                             </button>
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="dEI-kJ-HYn">
                                 <rect key="frame" x="20" y="306" width="560" height="188"/>
@@ -117,6 +120,15 @@
                         </constraints>
                     </view>
                     <nil key="simulatedStatusBarMetrics"/>
+                    <connections>
+                        <outlet property="backgroundImageView" destination="YYj-PV-7uV" id="E5H-gK-HBy"/>
+                        <outlet property="capitalLabel" destination="crb-j4-5Ke" id="ATS-AU-uvd"/>
+                        <outlet property="factsTextView" destination="dEI-kJ-HYn" id="tnb-gH-p8z"/>
+                        <outlet property="flagImageView" destination="J5H-4m-UO9" id="UfC-7I-qqp"/>
+                        <outlet property="populationLabel" destination="9uY-he-fWi" id="QX8-Ep-zAD"/>
+                        <outlet property="stateBirdLabel" destination="LwJ-Cl-KRe" id="LsC-MC-gdj"/>
+                        <outlet property="titleLabel" destination="M9w-v4-u3j" id="PFM-fQ-c2O"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="x5A-6p-PRh" sceneMemberID="firstResponder"/>
             </objects>
