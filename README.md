@@ -34,3 +34,20 @@ Implementing Geofencing is easy. Start by declaring the MKPolygon and CLCircular
 ```
 
 In the code example, note that there is a helper object that is defining the actual coordinates of each polygon and returning an MKPolygon through a class method. This object is included in the demo.
+
+Next set up the Geofencing object. It is best to declare the Geofencing object in the @interface of your ViewController. Then begin the [fencing monitorRegions:] method to start monitoring. Determine the code that is executed for both enter and exit events. Neither of these events can be nil at this point, so to do nothing, simply run an empty function through the block.
+
+```objective-c
+// Set up a Geofencing object and start monitoring
+    fencing = [[Geofencing alloc] init];
+    [fencing monitorRegions:southWesternStates onEnter:^(NSArray *regions) {
+        // Handle and identify fence enter events
+        for (GFGeofence *fence in regions) {
+            NSLog(@"You've entered %@!", fence.identifier);
+        }
+    } onExit:^(NSArray *regions){
+        for (GFGeofence *fence in regions) {
+            NSLog(@"You've exited %@!", fence.identifier);
+        }
+    }];
+```
