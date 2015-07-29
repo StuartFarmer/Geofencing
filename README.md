@@ -11,7 +11,7 @@ CoreLocation does allow geofences of CLCircularRegion objects. However, these re
 Geofencing handles geofences differently. Monitor as many CLCircularRegion or complex MKPolygon objects as you'd like using a simple block-based design, and recieve a callback of these objects whenever the user either enters or exits any of the implemented geofences.
 
 ![Demo](DEMO.png)
-#####In the included demo, changing a user's location to one that is inside of the geographical boundaries of one of the southwestern US states in the Four Corners changed the information on the travel guide.
+In the included demo, changing a user's location to one that is inside of the geographical boundaries of one of the southwestern US states in the Four Corners changes the information on the travel guide for the corresponding state. Exiting all boundaries hides the interface altogether.
 
 ####Using Geofencing to Monitor Regions
 
