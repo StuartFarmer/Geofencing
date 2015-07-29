@@ -114,6 +114,8 @@
 
 #pragma UI Update Methods
 - (void)updateUIForState:(NSString *)identifier {
+    
+    // Fade elements out
     activityIndicator.hidden = false;
     if (!uiIsHidden){
         [UIView animateWithDuration:0.5 animations:^{
@@ -127,7 +129,8 @@
         }];
         uiIsHidden = true;
     }
-
+    
+    // Set content for proper state
     if ([identifier isEqual:@"Utah"]) {
         self.backgroundImageView.image = [UIImage imageNamed:@"utahBg.jpg"];
         self.titleLabel.text = @"Welcome to Utah!";
@@ -165,6 +168,7 @@
         self.factsTextView.text = @"New Mexico is a southwestern state whose diverse terrain encompasses the Chihuahuan Desert and the Sangre de Cristo Mountains. Its capital, Santa Fe, founded in 1610, is known for upscale spas and Spanish colonial architecture. It's also home to a vibrant arts scene, as well as the Georgia O’Keeffe Museum, with its iconic New Mexican landscape paintings, and the open-air Santa Fe Opera.";
     }
     
+    // Fade elements back in
     [UIView animateWithDuration:0.5 animations:^{
         self.titleLabel.alpha = 1;
         self.flagImageView.alpha = 1;
