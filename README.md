@@ -56,5 +56,4 @@ And that's it! To stop monitoring, you can call the [fencing stopMonitoring] met
 
 ####License
 Geofencing is available under the MIT license. See the LICENSE file for more information.
-
-Icon created by by André Luiz Gollo from the Noun Project
+Icon created by André Luiz Gollo from the Noun Project
