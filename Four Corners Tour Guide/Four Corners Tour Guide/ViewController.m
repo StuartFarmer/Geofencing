@@ -33,6 +33,7 @@
     NSString *currentState;
     
     UIActivityIndicatorView *activityIndicator;
+    BOOL uiIsHidden;
 }
 
 @end
@@ -51,6 +52,7 @@
     self.stateBirdLabel.alpha = 0;
     self.factsTextView.alpha = 0;
     self.moreInfoButton.alpha = 0;
+    uiIsHidden = true;
     
     activityIndicator = [[UIActivityIndicatorView alloc] initWithActivityIndicatorStyle:UIActivityIndicatorViewStyleWhiteLarge];
     activityIndicator.center = self.view.center;
@@ -78,10 +80,31 @@
     [fencing monitorRegions:southWesternStates onEnter:^(NSArray *regions) {
         // Handle and identify fence enter events
         for (GFGeofence *fence in regions) {
-            currentState = fence.identifier;
-            [self updateUIForState:currentState];
+            // Only adjust the UI if the current state is not equal to the fence.identifier
+            if (currentState != fence.identifier) {
+                currentState = fence.identifier;
+                [self updateUIForState:currentState];
+            }
         }
-    } onExit:nil];
+    } onExit:^(NSArray *regions){
+        for (GFGeofence *fence in regions) {
+            if (currentState == fence.identifier) {
+                // Exited the current region, so just fade the UI out and reset currentState
+                [UIView animateWithDuration:0.5 animations:^{
+                    self.titleLabel.alpha = 0;
+                    self.flagImageView.alpha = 0;
+                    self.capitalLabel.alpha = 0;
+                    self.populationLabel.alpha = 0;
+                    self.stateBirdLabel.alpha = 0;
+                    self.factsTextView.alpha = 0;
+                    self.moreInfoButton.alpha = 0;
+                }];
+                activityIndicator.hidden = false;
+                uiIsHidden = true;
+                currentState = nil;
+            }
+        }
+    }];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -92,15 +115,18 @@
 #pragma UI Update Methods
 - (void)updateUIForState:(NSString *)identifier {
     activityIndicator.hidden = false;
-    [UIView animateWithDuration:0.5 animations:^{
-        self.titleLabel.alpha = 0;
-        self.flagImageView.alpha = 0;
-        self.capitalLabel.alpha = 0;
-        self.populationLabel.alpha = 0;
-        self.stateBirdLabel.alpha = 0;
-        self.factsTextView.alpha = 0;
-        self.moreInfoButton.alpha = 0;
-    }];
+    if (!uiIsHidden){
+        [UIView animateWithDuration:0.5 animations:^{
+            self.titleLabel.alpha = 0;
+            self.flagImageView.alpha = 0;
+            self.capitalLabel.alpha = 0;
+            self.populationLabel.alpha = 0;
+            self.stateBirdLabel.alpha = 0;
+            self.factsTextView.alpha = 0;
+            self.moreInfoButton.alpha = 0;
+        }];
+        uiIsHidden = true;
+    }
 
     if ([identifier isEqual:@"Utah"]) {
         self.backgroundImageView.image = [UIImage imageNamed:@"utahBg.jpg"];
@@ -148,6 +174,7 @@
         self.factsTextView.alpha = 1;
         self.moreInfoButton.alpha = 1;
     }];
+    uiIsHidden = false;
     activityIndicator.hidden = true;
 }
 
