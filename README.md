@@ -15,7 +15,7 @@ In the included demo, changing a user's location to one that is inside of the ge
 
 ####Using Geofencing to Monitor Regions
 
-Implementing Geofencing is easy. Start by declaring the MKPolygon and CLCircularRegion objects you'd like to monitor and add them to an array. This array can also be made on the fly.
+Implementing Geofencing is easy. Start by declaring the MKPolygon and CLCircularRegion objects you'd like to monitor and add them to an array.
 
 ```objective-c
 // Create an array of the geofences you want to monitor
@@ -51,3 +51,8 @@ Next set up the Geofencing object. It is best to declare the Geofencing object i
         }
     }];
 ```
+
+And that's it! To stop monitoring, you can call the [fencing stopMonitoring] method. You will have to reinitialize the start monitoring method with the correct blocks if you want to restart monitoring at any time.
+
+####License
+Geofencing is available under the MIT license. See the LICENSE file for more information.
