@@ -52,7 +52,13 @@ Next set up the Geofencing object. It is best to declare the Geofencing object i
     }];
 ```
 
-And that's it! To stop monitoring, you can call the [fencing stopMonitoring] method. You will have to reinitialize the start monitoring method with the correct blocks if you want to restart monitoring at any time.
+And that's it! 
+
+####Tweaking the behaviors of your geofence monitor
+
+By default, a Geofencing object checks if the user is within a geofence once every second. To adjust the update interval, simply assign a new value to the updateInterval float variable, where the new value is equal to the number of seconds between each update. The updateInterval can be adjusted dynamically for complex applications.
+
+You can also stop monitoring at any point in time by calling the stopMonitoring method. Note that you will have to reinitialize the startMonitoring method with your original arguments if you want to resume monitoring geofences with the same event handling.
 
 ####License
 Geofencing is available under the MIT license. See the LICENSE file for more information.
